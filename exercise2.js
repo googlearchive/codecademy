@@ -11,7 +11,7 @@ $(function() {
   firebaseRef.on("value", function(snap) {
     if (snap.val()) {
       var obj = snap.val();
-      var text = "You wrote the following object:<ul>");
+      var text = "You wrote the following object:<ul>";
       for (var key in obj) {
         text += "<li>" + key + ": " + obj[key] + "</li>";
       }
