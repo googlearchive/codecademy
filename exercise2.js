@@ -7,10 +7,15 @@ $(function() {
     localStorage.setItem("firebase-codecademy", hash);
   }
   var url = "https://" + localStorage.getItem(key) + ".firebaseio-demo.com";
-  window.firebaseRef = new Firebase(url).child("exercise1");
+  window.firebaseRef = new Firebase(url).child("exercise2");
   firebaseRef.on("value", function(snap) {
     if (snap.val()) {
-      $("#result").html("You wrote " + JSON.stringify(snap.val()) + " into Firebase!");
+      var obj = snap.val();
+      var text = "You wrote the following object:<ul>");
+      for (var key in obj) {
+        text += "<li>" + key + ": " + obj[key] + "</li>";
+      }
+      $("#result").html(text + "</ul>");
     } else {
       $("#result").html("You haven't written any data yet, make sure to call set()!");
     }
