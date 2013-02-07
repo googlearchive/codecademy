@@ -8,7 +8,7 @@ $(function() {
   }
   var url = "https://" + localStorage.getItem(key) + ".firebaseio-demo.com";
   window.firebaseRef = new Firebase(url).child("exercise1");
-  firebaseRef.child("exercise1").on("value", function(snap) {
+  firebaseRef.child.on("value", function(snap) {
     if (snap.val()) {
       $("#result").html("You wrote " + JSON.stringify(snap.val()) + " into exercise1!");
     } else {
