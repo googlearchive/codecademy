@@ -7,7 +7,7 @@ $(function() {
     localStorage.setItem("firebase-codecademy", hash);
   }
   var url = "https://" + localStorage.getItem(key) + ".firebaseio-demo.com";
-  window.firebaseRef = new Firebase(url).child("exercise1");
+  window.firebaseRef = new Firebase(url).child("basics/exercise1");
   firebaseRef.on("value", function(snap) {
     if (snap.val()) {
       $("#result").html("You wrote " + JSON.stringify(snap.val()) + " into Firebase!");
