@@ -9,6 +9,10 @@ $(function() {
   var url = "https://" + localStorage.getItem(key) + ".firebaseio-demo.com";
   window.firebaseRef = new Firebase(url).child("exercise1");
   firebaseRef.child("exercise1").on("value", function(snap) {
-    $("#result").html("You wrote " + JSON.stringify(snap.val()) + " into exercise1!");
+    if (snap.val()) {
+      $("#result").html("You wrote " + JSON.stringify(snap.val()) + " into exercise1!");
+    } else {
+      $("#result").html("You haven't written any data yet, make sure to call set()!");
+    }
   });
 });
