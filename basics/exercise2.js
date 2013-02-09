@@ -10,12 +10,7 @@ $(function() {
   window.firebaseRef = new Firebase(url).child("basics/exercise2");
   firebaseRef.on("value", function(snap) {
     if (snap.val()) {
-      var obj = snap.val();
-      var text = "You wrote the following object:<ul>";
-      for (var key in obj) {
-        text += "<li>" + key + ": " + obj[key] + "</li>";
-      }
-      $("#result").html(text + "</ul>");
+      $("#result").html("You wrote " + JSON.stringify(snap.val()) + " into Firebase!");
     } else {
       $("#result").html("You haven't written any data yet, make sure to call set()!");
     }

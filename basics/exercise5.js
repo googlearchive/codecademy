@@ -7,5 +7,6 @@ $(function() {
     localStorage.setItem("firebase-codecademy", hash);
   }
   var url = "https://" + localStorage.getItem(key) + ".firebaseio-demo.com/basics";
-  $("#result").html("<a target='_blank' href='" + url + "'>Click to see your Firebase!</a>");
+  window.firebaseRef = new Firebase(url);
+  $("#forge").html("<a target='_blank' href='" + url + "'>Click here for your Firebase Forge</a>");
 });
